@@ -1,0 +1,1 @@
+python test.py --dataset mvtec --data_path C:\anomaly_detection\data\mvtec_anomaly_detection --save_path ./results/mvtec_zeroshot --checkpoint_path ./checkpoints/9_12_4_multiscale_visa/epoch_15.pth --features_list 24 --image_size 518 --depth 9 --n_ctx 12 --t_n_ctx 4

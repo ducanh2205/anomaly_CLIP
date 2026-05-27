@@ -1,0 +1,12 @@
+metric,value
+n_images,90
+image_auroc,nan
+pixel_auroc,0.882222
+aupro_05,0.069766
+aupro_30,0.453790
+backbone,dinov2_vitl14
+resolution,518
+scales,"[4, 8, 16]"
+k_ratio,0.1
+sigma,4.0
+retinex,False
