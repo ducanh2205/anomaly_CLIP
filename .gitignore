@@ -19,9 +19,6 @@ submission*.zip
 # Raw score dumps (large)
 *.npy
 
-# External MVTec utils (download separately from MVTec website)
-MVTecAD2_public_code_utils/
-
 # Logs
 *.log
 log_*.txt
