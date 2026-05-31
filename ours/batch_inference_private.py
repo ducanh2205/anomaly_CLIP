@@ -187,7 +187,7 @@ def save_heatmap(amap: np.ndarray, path: Path):
 def infer_one(img_path: Path, model, device, args):
     """
     Inference on single image.
-    
+
     Returns:
         amap_orig : anomaly map at original resolution
         image_score : p95 percentile anomaly value
@@ -287,6 +287,9 @@ def main(args):
                 stem = Path(item['image_path']).stem
                 heatmap_path = heatmap_dir / f"{stem}_heatmap.png"
                 save_heatmap(amap_orig, heatmap_path)
+                # Dump raw float score for lossless submission conversion
+                np.save(heatmap_dir / f"{stem}_score.npy",
+                        amap_orig.astype(np.float32))
 
                 # Record result
                 results.append({
@@ -315,7 +318,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         description="Batch inference on MVTec AD 2 private splits"
     )
-    parser.add_argument("--data_root", type=str, 
+    parser.add_argument("--data_root", type=str,
                         default=r"C:\anomaly_detection\data\mvtec_ad_2",
                         help="Path to MVTec AD 2 dataset root")
     parser.add_argument("--output_dir", type=str, default="./results_private",
